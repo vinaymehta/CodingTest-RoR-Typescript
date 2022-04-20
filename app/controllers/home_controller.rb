@@ -9,6 +9,8 @@ class HomeController < ApplicationController
 
   def edit_todo_item
     @todo_item.update(todo_item_params)
+    @todos = Todo.all.order(:id)
+    render json: {data: @todos} #Sending data for saving in state variable
   end
 
   def reset_todo_items
